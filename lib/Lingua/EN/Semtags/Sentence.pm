@@ -5,7 +5,7 @@ use warnings;
 use constant TRUE  => 1;
 use constant FALSE => 0;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 #============================================================	
 sub new {
@@ -73,7 +73,7 @@ Returns C<$self-E<gt>{lunits}>.
 
 =item B<phrase_tokens()>
 
-Returns C<$self-E<gt>{phrase_tokens}>. Returns a hash ref. The hash is of the 
+Returns C<$self-E<gt>{phrase_tokens}> (a hash ref). The hash is of the 
 following format: C<{$phrase_token =E<gt> 1}>.
 
 =item B<string([$string])>
@@ -89,7 +89,7 @@ following format: C<{$word_token =E<gt> $pos}>.
 
 =head1 SEE ALSO
 
-L<Lingua::EN::Semtags::Engine>
+L<Lingua::EN::Semtags::Engine>, L<Lingua::EN::Semtags::LangUnit>
 
 =head1 AUTHOR
 

@@ -13,7 +13,7 @@ use constant POS2POSWN => {
 use constant TRUE  => 1;
 use constant FALSE => 0;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 #============================================================	
 sub new {
@@ -62,6 +62,7 @@ __END__
 =head1 NAME
 
 Lingua::EN::Semtags::LangUnit - a DTO used by C<Lingua::EN::Semtags::Sentence> 
+and C<Lingua::EN::Semtags::Engine>. 
 
 =head1 SYNOPSIS
 
@@ -70,7 +71,7 @@ Lingua::EN::Semtags::LangUnit - a DTO used by C<Lingua::EN::Semtags::Sentence>
 =head1 DESCRIPTION
 
 A DTO used by C<Lingua::EN::Semtags::Sentence> and 
-C<Lingua::EN::Semtags::LangUnit>.
+C<Lingua::EN::Semtags::Engine>.
 
 =head2 METHODS
 
@@ -82,11 +83,11 @@ Adds C<$isa> to C<$self-E<gt>{isas}>.
 
 =item B<is_phrase()>
 
-Returns C<true> is this language unit is a phrase.
+Returns C<true> if this language unit is a phrase.
 
 =item B<is_word()>
 
-Returns true if this language unit is a word.
+Returns C<true> if this language unit is a word.
 
 =item B<isas()>
 
@@ -98,7 +99,7 @@ Returns C<$self-E<gt>{pos}>(a C<Lingua::EN::Tagger> part of speech tag).
 
 =item B<poswn()>
 
-Returns C<$self-E<gt>{pos}> converted into the C<WordNet::QueryData> style tag.
+Returns C<$self-E<gt>{pos}> converted into a C<WordNet::QueryData> tag.
 
 =item B<sense([$sense])>
 
@@ -112,7 +113,7 @@ Returns C<$self-E<gt>{token}>.
 
 =head1 SEE ALSO
 
-L<Lingua::EN::Semtags::Engine>
+L<Lingua::EN::Semtags::Engine>, L<Lingua::EN::Semtags::Sentence>
 
 =head1 AUTHOR
 

@@ -15,7 +15,7 @@ use constant ISAS => 'hypes'; # Hypernyms
 use constant TRUE => 1;
 use constant FALSE => 0;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 #============================================================ 
 sub new {
@@ -278,31 +278,33 @@ Lingua::EN::Semtags::Engine - extract semantic tags (semtags) from English text
 =head1 SYNOPSIS
 
   use Lingua::EN::Semtags::Engine;
+  
   my $engine = Lingua::EN::Semtags::Engine->new;
   my @semtags = $engine->semtags("your blog post title");
 
 =head1 DESCRIPTION
 
-Lingua::EN::Semtags uses Lingua::EN::Tagger and WordNet::QueryData to extract 
-semantic tags (semtags) from English text.  Semtags are words which reflect 
-the semantic essence of the text (similar to topic keywords).
+C<Lingua::EN::Semtags::Engine> uses C<Lingua::EN::Tagger> and 
+C<WordNet::QueryData> to extract semantic tags (semtags) from English text.  
+Semtags are words which reflect the semantic essence of a piece of text 
+(similar to topic keywords).
 
-Lingua::EN::Semtags was designed and developed to solve a particular problem I 
-was facing.
+C<Lingua::EN::Semtags::Engine> was designed and developed to solve a particular 
+problem I was facing.
 
 Problem: a user is processing blog post titles and needs to programmatically 
 determine the posts' semantic context.
 
-Solution: the user feeds a blog post title to Lingua::EN::Semtags and gets 
-back a set of semtags which can be used for further processing (e.g., web 
-searches).
+Solution: the user feeds a blog post title to C<Lingua::EN::Semtags::Engine> 
+and gets back a set of semtags which can be used for further processing (e.g., 
+web searches).
 
 Example: a blog post title like "BBtv: Graffiti Research Lab, the movie" 
-(boingboing.net, Posted by Xeni Jardin, April 24, 2008 8:00 AM) would produce 
-the following semtags: [DECORATION WORKPLACE SHOW].
+(boingboing.net, Xeni Jardin, April 24, 2008 8:00 AM) would produce 
+the following semtags: DECORATION WORKPLACE SHOW.
 
-Please note that the module makes the following assumptions when attempting to 
-extract semtags:
+Please note that the module makes the following B<assumptions> when attempting 
+to extract semtags:
 
 =over 4
 
@@ -313,18 +315,19 @@ for semtags;
 
 =item *
 
-at the time of phrase detection a frame is grown up to PHRASE_FRAME_SIZE 
+at the time of phrase detection, a frame is grown up to C<PHRASE_FRAME_SIZE> 
 (set to 3) tokens;
 
 =item *
 
-a language unit (a word or a phrase) is considered meaningful if its hypernym 
-hierarchy in the WordNet database is at least MIN_ISAS (set to 3) levels deep;
+a I<language unit> (a word or a phrase) is considered I<meaningful> if its 
+hypernym hierarchy in the WordNet database is at least C<MIN_ISAS> (set to 3) 
+levels deep;
 
 =item *
 
-a semtag is a meaningful language unit's hypernym at the SEMTAG_ISA_INDEX (set 
-to 1, starts with 0) level of the hierarchy.
+a semtag is a I<meaningful language unit>'s hypernym at the C<SEMTAG_ISA_INDEX> 
+(set to 1, starts with 0) level of the hierarchy.
 
 =back
 
@@ -341,8 +344,8 @@ semtags.
 
 =item B<sentence($string)>
 
-Returns an instance of C<Lingua::EN::Semtags::Sentence> populates with 
-C<Lingua::EN::Semtags::LangUnit> objects which represnet meaningful language 
+Returns an instance of C<Lingua::EN::Semtags::Sentence>, populates it with 
+C<Lingua::EN::Semtags::LangUnit> objects which represent meaningful language 
 units.
 
 =item B<tagger()>
@@ -361,7 +364,7 @@ Returns the C<WordNet::QueryData> instance used by the engine.
 
 =head1 SEE ALSO
 
-L<Lingua::EN::Tagger>, L<WordNet::QueryData>
+L<Lingua::EN::Tagger>, L<WordNet::QueryData>, http://code.google.com/p/lingua-en-semtags-engine
 
 =head1 AUTHOR
 
